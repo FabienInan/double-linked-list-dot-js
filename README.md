@@ -16,7 +16,7 @@ npm install --save double-linked-list-dot-js # if you use npm
 ## Usage
 ```js
 // Basic usage example
-import DoubleLinkedList from 'double-linked-list-dot-js';
+import {DoubleLinkedList, Node} from 'double-linked-list-dot-js';
 
 let list = new DoubleLinkedList();
 

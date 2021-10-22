@@ -1,6 +1,6 @@
 {
     "name": "double-linked-list-dot-js",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Efficient and useful implementation of the double linked list structure",  
     "keywords": [
         "linked list",

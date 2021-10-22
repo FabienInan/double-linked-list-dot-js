@@ -108,27 +108,4 @@ class DoubleLinkedList {
 }
 
 
-module.exports = {DoubleLinkedList};
-
-
-let list = new DoubleLinkedList();
-
-let head = new Node(2);
-list.setHead(head);
-console.log(list);
-list.insertAtPosition(2, new Node(5));
-list.insertAtPosition(3, new Node(6));
-list.insertAtPosition(4, new Node(7));
-list.insertAtPosition(5, new Node(9));
-console.log(list);
-console.log(list.containsValue(2));
-console.log(list.containsValue(5));
-console.log(list.containsValue(6));
-console.log(list.containsValue(7));
-console.log(list.containsValue(9));
-//remove node by reference
-list.removeNode(head);
-console.log(list);
-//remove node by value
-list.removeNodeWithValue(7);
-console.log(list);
+module.exports = {Node, DoubleLinkedList};
