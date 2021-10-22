@@ -1,22 +1,18 @@
 {
-    "name": "heap-dot-js",
-    "version": "1.0.5",
-    "description": "Efficient and useful implementation of the heap structure",  
+    "name": "double-linked-list-dot-js",
+    "version": "1.0.0",
+    "description": "Efficient and useful implementation of the double linked list structure",  
     "keywords": [
-        "heap",
-        "min heap",
-        "max heap",
-        "tree",
-        "binary tree",
+        "linked list",
+        "double linked list",
         "data structure",
-        "algorithm",
-        "typescript"
+        "algorithm"
       ],
     "author": "Fabien Inan <fabien.inan@gmail.com>",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git@github.com:FabienInan/heap-dot-js.git"
+        "url": "git@github.com:FabienInan/double-linked-list-dot-js.git"
     },
     "main": "index.js"
 }

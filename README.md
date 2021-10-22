@@ -1,61 +1,83 @@
-<div id="top"></div>
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<h1 align="center">Heap Dot Js</h3>
+<h1 align="center">Double Linked List Dot Js</h3>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Efficient and useful implementation of the heap structure
+Efficient and useful implementation of the double linked list structure
 
 ## Getting Started
 
 ```bash
-yarn add heap-dot-js # if you use yarn
+yarn add double-linked-list-dot-js # if you use yarn
 
-npm install --save heap-dot-js # if you use npm
+npm install --save double-linked-list-dot-js # if you use npm
 ```
 
 ## Usage
 ```js
 // Basic usage example
-import Heap from 'heap-dot-js';
+import DoubleLinkedList from 'double-linked-list-dot-js';
 
-const minHeap = new MinHeap();
-minHeap.buildHeap([2, 3, 4, 5, -2, 56, 6, 1]);
-console.log(minHeap.values); //[-2, 1, 4, 2, 3, 56, 6, 5]
-minHeap.add(-12);
-console.log(minHeap.values); //[-12, -2, 1, 4, 2, 3, 56, 6, 5]
-console.log(minHeap.removeTop()); //-12
-console.log(minHeap.values); //[-2, 1, 4, 2, 3, 56, 6, 5]
+let list = new DoubleLinkedList();
 
-const maxHeap = new MaxHeap();
-maxHeap.buildHeap([2, 3, 4, 5, -2, 56, 6, 1]);
-console.log(maxHeap.values); //[56, 5, 6, 3, -2, 4, 2, 1]
-maxHeap.add(86); 
-console.log(maxHeap.values); //[86, 56, 5, 6, 3, -2, 4, 2, 1, -12]
-console.log(maxHeap.removeTop()); //86
-console.log(maxHeap.values); //[56, 5, 6, 3, -2, 4, 2, 1]
+let head = new Node(2);
+list.setHead(head);
+console.log(list);
+/* DoubleLinkedList {
+  head: Node { value: 2, prev: null, next: null },
+  tail: Node { value: 2, prev: null, next: null }
+}
+} */
+list.insertAtPosition(2, new Node(5));
+list.insertAtPosition(3, new Node(6));
+list.insertAtPosition(4, new Node(7));
+list.insertAtPosition(5, new Node(9));
+console.log(list);
+/*
+DoubleLinkedList {
+  head: <ref *1> Node {
+    value: 2,
+    prev: null,
+    next: Node { value: 5, prev: [Circular *1], next: [Node] }
+  },
+  tail: <ref *2> Node {
+    value: 9,
+    prev: Node { value: 7, prev: [Node], next: [Circular *2] },
+    next: null
+  }*/
+console.log(list.containsValue(2)); //true
+console.log(list.containsValue(5)); //true
+console.log(list.containsValue(6)); //true
+console.log(list.containsValue(7)); //true
+console.log(list.containsValue(9)); //true
+//remove node by reference
+list.removeNode(head);
+console.log(list);
+/*DoubleLinkedList {
+  head: <ref *1> Node {
+    value: 5,
+    prev: null,
+    next: Node { value: 6, prev: [Circular *1], next: [Node] }
+  },
+  tail: <ref *2> Node {
+    value: 9,
+    prev: Node { value: 7, prev: [Node], next: [Circular *2] },
+    next: null
+  }
+}*/
+//remove node by value
+list.removeNodeWithValue(7);
+console.log(list);
+/*DoubleLinkedList {
+  head: <ref *1> Node {
+    value: 5,
+    prev: null,
+    next: Node { value: 6, prev: [Circular *1], next: [Node] }
+  },
+  tail: <ref *2> Node {
+    value: 9,
+    prev: Node { value: 6, prev: [Node], next: [Circular *2] },
+    next: null
+  }
+}*/
 ```
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/FabienInan/heapDotJs/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/FabienInan/heapDotJs/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/FabienInan/heapDotJs/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/FabienInan/heapDotJs/issues
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/fabieninan/
